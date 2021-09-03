@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,16 +13,43 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private float speed;
 
     private bool newDay = false;
+    
+    private const float TICK_TIMER_MAX = .2f;
+
+    private int tick = 0;
+    private float tickTimer;
 
     private int actualDay;
-    private enum daysOfWeek {Monday, Tuesday, Wedesnay, Thuersday, Friday}
 
+    public static event EventHandler<OnTickEventArgs> OnTick;
+    public static event EventHandler<OnTickEventArgs> OnTick_10;
+
+
+    public class OnTickEventArgs : EventArgs 
+    {
+        public int tick;
+    }
+    
     void Update() 
     {
         if (preset == null) return;
-        Debug.Log("actualDay:" + actualDay);
+        //Debug.Log("actualDay:" + actualDay);
         if(Application.isPlaying)
         {
+            tickTimer += Time.deltaTime;
+            if (tickTimer >= TICK_TIMER_MAX)
+            {
+                tickTimer -= TICK_TIMER_MAX;
+                tick++;
+                if (OnTick != null) OnTick(this, new OnTickEventArgs { tick = tick });
+                if (tick % 10 == 0)
+                {
+                    if (OnTick_10 != null) OnTick_10(this, new OnTickEventArgs { tick = tick });
+                } 
+
+                //Debug.Log("tick:" + tick);
+            }
+
             timeOfDay += Time.deltaTime * speed;
             timeOfDay %= 24;
             Debug.Log("timeOfDay:" + (int) timeOfDay);

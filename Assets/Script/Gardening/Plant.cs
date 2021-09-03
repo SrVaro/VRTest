@@ -2,27 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(fileName = "New Plant", menuName = "Plant")]
 public class Plant : MonoBehaviour
-//ScriptableObject
 {
-    public new string name;
-    public string description;
     private float randRot;
-    private float randScale;
-    private Vector3 treeScale;
-    public int growState = 1;
-    [SerializeField] int maxGrow = 10;
-    private float increment = 0;
+    //private float randScale;
+    //private Vector3 treeScale;
+    private int growState = 0;
+    [SerializeField] private List<Sprite> spriteList;
+    [SerializeField] private SpriteRenderer spriteRenderer1;
+    [SerializeField] private SpriteRenderer spriteRenderer2;
+    [SerializeField] private int maxGrow;
+    [SerializeField] private int growRate = 5;
+
+    private int growTick;
+
+    private bool watered = false;
 
     void Start()
-    {      
-        transform.localScale = Vector3.zero;
-        transform.Rotate(Vector3.up, randRot);
+    {
+        LightingManager.OnTick_10 += TimeManager_OnTick;
 
         randRot = Random.Range(0f, 180f);
-        randScale = Random.Range(0.05f, 0.1f);  
-        increment = (randScale / maxGrow);
+        transform.Rotate(Vector3.up, randRot);
+
+        //transform.localScale = Vector3.zero;
+        //randScale = Random.Range(0.05f, 0.1f);
+        //increment = (randScale / maxGrow);
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -30,15 +35,31 @@ public class Plant : MonoBehaviour
         Debug.Log(collider.gameObject.layer);
         Debug.Log(LayerMask.NameToLayer("Water"));
         if(collider.gameObject.layer == LayerMask.NameToLayer("Water") && growState < maxGrow) {
-            growState += 1;
-
-            treeScale = new Vector3(growState * increment, growState * increment, growState * increment);
-            Debug.Log(treeScale);
-            transform.localScale = treeScale;
+            watered = true;
+            GetComponentInParent<Material>();
+            //treeScale = new Vector3(growState * increment, growState * increment, growState * increment);
+            //Debug.Log(treeScale);
+            //transform.localScale = treeScale;
         }
     }
 
-     private IEnumerator TreeSpawn(GameObject newTree)
+    private void TimeManager_OnTick(object sender, LightingManager.OnTickEventArgs e)
+    {
+        if(growState != maxGrow && watered) 
+        {
+            growTick++;
+            if((growTick % growRate) == 0) 
+            {
+                growState++;
+                spriteRenderer1.sprite = spriteList[growState];
+                spriteRenderer2.sprite = spriteList[growState];
+                watered = false;
+            }
+        }
+    }
+
+    /* 
+    private IEnumerator TreeSpawn(GameObject newTree)
     {
         newTree.transform.Rotate(Vector3.up, randRot);
         treeScale = Vector3.zero;
@@ -52,6 +73,7 @@ public class Plant : MonoBehaviour
             start += 1;
             yield return new WaitForSeconds(0.01f);
         }
-    } 
+    }  
+    */
 
 }

@@ -9,10 +9,18 @@ public class Stream : MonoBehaviour
     private Coroutine pourRoutine = null;
     private Vector3 targetPosition = Vector3.zero;
     [SerializeField] private GameObject waterCollider;
+    private int layer_mask;
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        // Esta capa es la unica que ignoraremos, ya que interfiere con el collider para controlar que esta siendo regado
+
+        // Se pueden juntar varias Layers 
+        //int layer_mask = LayerMask.GetMask("Water","Enemy","Cows");
+        layer_mask = LayerMask.GetMask("Water");
+        
         lineRenderer = GetComponent<LineRenderer>();
         splashParticle = GetComponentInChildren<ParticleSystem>();
     }
@@ -70,17 +78,12 @@ public class Stream : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
 
-        // Esta capa es la unica que ignoraremos, ya que interfiere con el collider para controlar que esta siendo regado
-        int layer_mask = LayerMask.GetMask("Water");
-
-        // Se pueden juntar varias Layers 
-        //int layer_mask = LayerMask.GetMask("Water","Enemy","Cows");
-        
         // El simbolo ~ expecifica que el raycast ignorara la capa "Water" pero no todas las demas
         Physics.Raycast(ray, out hit, 2.0f, ~layer_mask);
 
         Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(2.0f);
 
+        Debug.Log("endPoint:" + endPoint);
 
         waterCollider.transform.position = endPoint;
 
