@@ -6,7 +6,7 @@ public class Seed : MonoBehaviour
 {
     private Vector3 treeScale;
  
-    private int growState = 0;
+    //private int growState = 0;
 
     [SerializeField] private GameObject plant;
 
