@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2959309095072260409
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.0731127
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.447649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7492469
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322768236610060397, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: m_Name
+      value: PumpkinSeedBag
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322768236610060398, guid: b05828618f046194489903e239433551,
+        type: 3}
+      propertyPath: seed
+      value: 
+      objectReference: {fileID: 4084914063770368706, guid: 8ea2f1dd1bc81ac42a6d2df8de913da1,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b05828618f046194489903e239433551, type: 3}

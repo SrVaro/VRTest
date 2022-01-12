@@ -11,8 +11,8 @@ public class Land : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<MeshFilter>().mesh = uncultivatedLandMesh;
-        gameObject.layer = LayerMask.NameToLayer("SownLand");
+        //GetComponent<MeshFilter>().mesh = uncultivatedLandMesh;
+        //gameObject.layer = LayerMask.NameToLayer("SownLand");
         
     }
 
