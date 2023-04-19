@@ -14,10 +14,10 @@ TagManager:
   - Grabbable
   - Ground
   - PlowedLand
+  - UnplowedLand
   - SownLand
   - Hoe
-  - 
-  - 
+  - Punchable
   - 
   - 
   - 

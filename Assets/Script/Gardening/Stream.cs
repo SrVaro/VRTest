@@ -11,14 +11,10 @@ public class Stream : MonoBehaviour
     [SerializeField] private GameObject waterCollider;
     private int layer_mask;
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         // Esta capa es la unica que ignoraremos, ya que interfiere con el collider para controlar que esta siendo regado
-
-        // Se pueden juntar varias Layers 
-        //int layer_mask = LayerMask.GetMask("Water","Enemy","Cows");
+        // Se pueden juntar varias Layers int layer_mask = LayerMask.GetMask("Water","Enemy","Cows");
         layer_mask = LayerMask.GetMask("Water");
         
         lineRenderer = GetComponent<LineRenderer>();
@@ -26,7 +22,6 @@ public class Stream : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Start()
     {
         MoveToPosition(0, transform.position);
@@ -35,7 +30,6 @@ public class Stream : MonoBehaviour
 
     public void Begin()
     {
-        StartCoroutine(BeginPour());
         pourRoutine = StartCoroutine(BeginPour());
     }
 
@@ -47,9 +41,7 @@ public class Stream : MonoBehaviour
             MoveToPosition(0, transform.position);
             AnimateToPosition(1, targetPosition);
             yield return null;
-            
         }
-
     }
 
     public void End()
@@ -60,14 +52,6 @@ public class Stream : MonoBehaviour
 
     private IEnumerator EndPour()
     {
-        // Close Stream Animation not working
-        //while(!HasReachedPosition(0, targetPosition))
-        //
-        //    AnimateToPosition(0, targetPosition);
-        //    AnimateToPosition(1, targetPosition);
-
-        //    
-        //}
         Destroy(gameObject);
 
         yield return null;
@@ -78,16 +62,13 @@ public class Stream : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(transform.position, Vector3.down);
 
-        // El simbolo ~ expecifica que el raycast ignorara la capa "Water" pero no todas las demas
+        // El simbolo ~ expecifica que el raycast ignorara la capa indicada y solo esa
         Physics.Raycast(ray, out hit, 2.0f, ~layer_mask);
 
         Vector3 endPoint = hit.collider ? hit.point : ray.GetPoint(2.0f);
 
-        Debug.Log("endPoint:" + endPoint);
-
         waterCollider.transform.position = endPoint;
-
-
+        
         return endPoint;
     }
 

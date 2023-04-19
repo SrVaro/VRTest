@@ -13,6 +13,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8805249904890734108, guid: 2981d49dfa9894c49b90d2f0643b4b01,
         type: 3}
+    - target: {fileID: 4924056693057427269, guid: b54e8a746094eea4a9ca17bfca44309d,
+        type: 3}
+      propertyPath: plant
+      value: 
+      objectReference: {fileID: 8805249904890734108, guid: 2981d49dfa9894c49b90d2f0643b4b01,
+        type: 3}
     - target: {fileID: 7096760992344519626, guid: b54e8a746094eea4a9ca17bfca44309d,
         type: 3}
       propertyPath: m_Name
@@ -72,6 +78,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105020827664559386, guid: b54e8a746094eea4a9ca17bfca44309d,
+        type: 3}
+      propertyPath: m_Name
+      value: TomatoSeed Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b54e8a746094eea4a9ca17bfca44309d, type: 3}

@@ -67,5 +67,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7105020827664559386, guid: b54e8a746094eea4a9ca17bfca44309d,
+        type: 3}
+      propertyPath: m_Name
+      value: PotatoSeed Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7105020827664559390, guid: b54e8a746094eea4a9ca17bfca44309d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.0077
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b54e8a746094eea4a9ca17bfca44309d, type: 3}

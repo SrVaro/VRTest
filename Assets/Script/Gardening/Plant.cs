@@ -5,8 +5,6 @@ using UnityEngine;
 public class Plant : MonoBehaviour
 {
     private float randRot;
-    //private float randScale;
-    //private Vector3 treeScale;
     private int growState = 0;
     [SerializeField] private List<Sprite> spriteList;
     [SerializeField] private SpriteRenderer spriteRenderer1;
@@ -24,22 +22,13 @@ public class Plant : MonoBehaviour
 
         randRot = Random.Range(0f, 180f);
         transform.Rotate(Vector3.up, randRot);
-
-        //transform.localScale = Vector3.zero;
-        //randScale = Random.Range(0.05f, 0.1f);
-        //increment = (randScale / maxGrow);
     }
 
     private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collider.gameObject.layer);
-        Debug.Log(LayerMask.NameToLayer("Water"));
         if(collider.gameObject.layer == LayerMask.NameToLayer("Water") && growState < maxGrow) {
             watered = true;
-            GetComponentInParent<Material>();
-            //treeScale = new Vector3(growState * increment, growState * increment, growState * increment);
-            //Debug.Log(treeScale);
-            //transform.localScale = treeScale;
+            //GetComponentInParent<Material>();
         }
     }
 
@@ -53,7 +42,8 @@ public class Plant : MonoBehaviour
                 growState++;
                 spriteRenderer1.sprite = spriteList[growState];
                 spriteRenderer2.sprite = spriteList[growState];
-                watered = false;
+                // watered = false;
+                // COmentado solo para hacer rapido las pruebas
             }
         }
     }

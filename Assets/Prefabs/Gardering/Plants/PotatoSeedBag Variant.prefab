@@ -15,7 +15,7 @@ PrefabInstance:
     - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1844516
+      value: -1.183
       objectReference: {fileID: 0}
     - target: {fileID: 4272970452547340231, guid: b05828618f046194489903e239433551,
         type: 3}
@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 7322768236610060397, guid: b05828618f046194489903e239433551,
         type: 3}
       propertyPath: m_Name
-      value: PotatoSeedBag
+      value: PotatoSeedBag Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7322768236610060398, guid: b05828618f046194489903e239433551,
         type: 3}

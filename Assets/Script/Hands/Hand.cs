@@ -234,4 +234,6 @@ public class Hand : MonoBehaviour
             animator.SetFloat(animatorTargetParam, triggerCurrent);
         }
     }
+
+    
 }

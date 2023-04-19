@@ -1,24 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Land : MonoBehaviour
 {
 
     [SerializeField] private Mesh plowedLandMesh;
-    [SerializeField] private Mesh uncultivatedLandMesh;
+    [SerializeField] private Mesh UnplowedLandMesh;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //GetComponent<MeshFilter>().mesh = uncultivatedLandMesh;
-        //gameObject.layer = LayerMask.NameToLayer("SownLand");
-        
+
+    private bool plowed = false;
+
+    void Start() {
     }
 
     public void Plow() {
+        plowed = true;
         GetComponent<MeshFilter>().mesh = plowedLandMesh;
         gameObject.layer = LayerMask.NameToLayer("PlowedLand");
+    }
+
+    public void Unplow() {
+        plowed = false;
+        GetComponent<MeshFilter>().mesh = UnplowedLandMesh;
+        gameObject.layer = LayerMask.NameToLayer("UnplowedLand");
     }
 
 }

@@ -7,7 +7,6 @@ public class WateringCan : InteractuableItems
   
 
     [SerializeField] int pourThreshold = 45;
-    //[SerializeField] private ParticleSystem water;
     [SerializeField] private GameObject streamPrefab = null;
     [SerializeField] private Transform origin;
     [SerializeField] private float cooldownTime;
@@ -17,21 +16,19 @@ public class WateringCan : InteractuableItems
 
     private Stream currentStream = null;
 
-    void Start()
-    {
-        //var emission = water.emission;
-        //emission.enabled = false;
-    }
 
     void Update()
     {
         
         if(isActive)
         {
+            
             bool pourCheck = CalculatePourAngle() < pourThreshold;
-            Debug.Log("pourCheck:" + pourCheck);
-            Debug.Log("isPouring:" + isPouring);
-            Debug.Log("angulo:" + CalculatePourAngle());
+            //Debug.Log("pourCheck:" + pourCheck);
+            //Debug.Log("isPouring:" + isPouring);
+            //Debug.Log("angulo:" + CalculatePourAngle());
+
+            // Se comprueba si la regadera esta en un angulo correcto y no esta activada
             if(pourCheck && !isPouring) 
             {
                 isPouring = true;
@@ -71,26 +68,9 @@ public class WateringCan : InteractuableItems
         return streamObject.GetComponent<Stream>();
     }
 
-    /* private IEnumerator Watering(float cooldown)
-    {
-        while(true) 
-        {
-            float waitTime = Random.Range(0.1f, cooldown);
-            yield return new WaitForSeconds(waitTime);
-            GameObject seeds = GameObject.Instantiate(wat);
-            seeds.transform.position = actionPoint.position;
-            seeds.GetComponent<Rigidbody>().AddForce(Vector3.up);
-        }
-    } */
-
     public override void Action() 
     {
         isActive = true;
-        //var emission = water.emission;
-        //emission.enabled = true;
-        
-        //wateringCoroutine = Watering(cooldownTime);
-        //StartCoroutine(wateringCoroutine);
     }
 
     public override void StopAction() 
@@ -98,9 +78,5 @@ public class WateringCan : InteractuableItems
         isActive = false;
 
         EndPour();
-        //var emission = water.emission;
-        //emission.enabled = false;
-
-        //StopCoroutine(wateringCoroutine);
     }
 }
